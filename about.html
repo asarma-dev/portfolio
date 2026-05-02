@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About — Senior Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+    <link rel="icon" type="image/png" href="assets/favicon/favicon.png" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/about.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="ruby-entrance" aria-hidden="true"></div>
+
+    <!-- Nav -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Home">
+          <span class="logo-a" aria-hidden="true">A</span>
+          <span class="logo-s" aria-hidden="true">S</span>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <button class="nav-work-toggle" aria-expanded="false">Work</button>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+        </ul>
+        <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Work panel -->
+    <div class="work-panel" aria-hidden="true">
+      <button class="work-panel-close" aria-label="Close work menu"></button>
+      <ul class="work-panel-list">
+        <li><a href="work/verizon.html">Verizon</a></li>
+        <li><a href="work/xfinity.html">Xfinity</a></li>
+        <li><a href="work/liberty-mutual.html">Liberty Mutual</a></li>
+        <li><a href="work/ram.html">RAM Trucks</a></li>
+        <li><a href="work/red-sox.html">Red Sox</a></li>
+        <li><a href="work/virgin-mobile.html">Virgin Mobile</a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div class="nav-mobile-menu" aria-hidden="true">
+      <div class="nav-mobile-inner">
+        <ul class="nav-mobile-primary">
+          <li>
+            <button class="nav-mobile-work-trigger" aria-expanded="false">
+              Work
+              <span class="nav-mobile-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="nav-mobile-accordion">
+              <ul class="nav-mobile-work-list">
+                <li><a href="work/verizon.html">Verizon</a></li>
+                <li><a href="work/xfinity.html">Xfinity</a></li>
+                <li><a href="work/liberty-mutual.html">Liberty Mutual</a></li>
+                <li><a href="work/ram.html">RAM Trucks</a></li>
+                <li><a href="work/red-sox.html">Red Sox</a></li>
+                <li><a href="work/virgin-mobile.html">Virgin Mobile</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- About -->
+    <main id="main-content">
+      <!-- Hero -->
+      <section class="about-hero">
+        <!-- Left: text -->
+        <div class="about-text">
+          <p class="eyebrow about-eyebrow">Senior Product Designer</p>
+          <h1 class="about-heading">
+            I've been here since Flash was a feature.
+          </h1>
+          <div class="about-body">
+            <p>
+              Over fifteen years of UX in Boston. I came up through three
+              agencies (small, medium, and large). Winsper taught me to hustle.
+              Beam Interactive is where I became a UX designer. Publicis Sapient
+              introduced me to product design at scale. Along the way I've lived
+              through every major shift in the industry, from the App Store to
+              AI. I'm not watching it from the sidelines. I'm
+              already building it into how I work.
+            </p>
+            <p>
+              What changed my thinking most wasn't a design tool. It was Agile.
+              Learning to write user stories properly restructured how I
+              approach design. I write user stories alongside the design, not
+              ahead of it. By the time interactions are 90% locked, acceptance
+              criteria are already in Gherkin, detailed enough that engineers
+              have no surprises and QA has no ambiguity.
+            </p>
+            <p>
+              I've been a team of one and a lead managing teams of designers,
+              researchers, and strategists. I still do the work. When I'm
+              leading, I'm not hovering. I'm usually the one sketching
+              something next to you.
+            </p>
+          </div>
+        </div>
+
+        <!-- Right: portrait + contact -->
+        <div class="about-right">
+          <div class="about-photo-wrap">
+            <img
+              class="about-photo-bw"
+              src="assets/images/about/portrait-bw.png"
+              alt="Portrait"
+            />
+            <img
+              class="about-photo-ruby"
+              src="assets/images/about/portrait-ruby.png"
+              aria-hidden="true"
+            />
+            <img
+              class="about-photo-cyan"
+              src="assets/images/about/portrait-cyan.png"
+              aria-hidden="true"
+            />
+          </div>
+          <div class="about-contact-group">
+            <p class="eyebrow">Contact me</p>
+            <a href="mailto:asarma3@gmail.com" class="about-contact"
+              >asarma3@gmail.com →</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/cursor.js"></script>
+    <script src="js/rubylith.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/scroll.js"></script>
+    <script>
+      if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        const wrap = document.querySelector(".about-photo-wrap");
+        if (wrap) {
+          wrap.addEventListener("click", () =>
+            wrap.classList.toggle("is-tapped"),
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

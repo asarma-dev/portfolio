@@ -1,0 +1,196 @@
+/* home.css — homepage-specific styles */
+
+/* Lock browser scroll on desktop — tiles animate instead */
+@media (min-width: 768px) {
+  html,
+  body {
+    overflow: hidden;
+    height: 100%;
+  }
+}
+
+
+/* ── Home layout: text left, grid right ── */
+.home-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: start;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--space-32) + 64px) var(--page-margin) var(--space-32);
+}
+
+/* ── Hero text ── */
+.home-text {
+  position: sticky;
+  top: calc(64px + var(--space-10));
+}
+
+.hero-eyebrow {
+  margin-bottom: var(--space-4);
+}
+
+.hero-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-6);
+}
+
+.hero-heading em {
+  font-style: italic;
+}
+
+.hero-body {
+  font-size: var(--text-body-lg);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* ── Work grid ── */
+.work-grid {
+  overflow: visible;
+  height: calc(100vh - 200px);
+  min-height: 400px;
+  position: relative;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 16px, black calc(100% - 16px), transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 16px, black calc(100% - 16px), transparent);
+}
+
+.work-scroll-track {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  will-change: transform;
+}
+
+/* ── Tile component ── */
+.project-tile {
+  display: block;
+  text-decoration: none;
+  border-radius: var(--radius-none);
+  overflow: hidden;
+  background: var(--color-surface);
+  border: var(--border-subtle) solid var(--color-border);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.project-tile:hover {
+  transform: translateY(-2px);
+}
+
+/* Per-project tile background colors */
+[data-project="verizon"]       { background: #000000; }
+[data-project="red-sox"]       { background: #c62033; }
+[data-project="ram"]           { background: #dcdee3; }
+[data-project="virgin-mobile"] { background: #E31E23; }
+[data-project="boston-globe"]  { background: #1A804D; }
+[data-project="staples"]       { background: #CA0813; }
+[data-project="xfinity"]       { background: #6138f6; }
+[data-project="liberty-mutual"] { background: #FDCF00; }
+
+
+.tile-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.tile-img-layer {
+  position: absolute;
+  inset: 0;
+}
+
+.tile-img-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tile-ruby-overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-ruby);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.project-tile:hover .tile-ruby-overlay {
+  opacity: 1;
+}
+
+.tile-label {
+  position: absolute;
+  bottom: var(--space-6);
+  left: var(--space-6);
+  right: var(--space-6);
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.project-tile:hover .tile-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tile-label-title {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-h1);
+  color: #fff;
+  line-height: 1.3;
+}
+
+.tile-label-sub {
+  display: block;
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+  margin-top: 2px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 767px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+    padding: calc(var(--nav-height) + var(--space-8)) var(--space-6) var(--space-20);
+    gap: var(--space-10);
+  }
+
+  .home-text {
+    position: static;
+  }
+
+  .hero-heading {
+    font-size: 36px;
+  }
+
+  /* Tiles scroll naturally — no clipping, no fixed height, no JS animation */
+  .work-grid {
+    overflow: visible;
+    height: auto;
+    min-height: unset;
+  }
+
+  .work-grid::before,
+  .work-grid::after {
+    display: none;
+  }
+
+  .tile-media {
+    aspect-ratio: 4 / 3;
+  }
+}

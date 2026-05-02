@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Favicon PNG Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <style>
+    body { background: #222; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; font-family: sans-serif; color: #fff; gap: 24px; }
+    canvas { image-rendering: pixelated; }
+    .preview { display: flex; gap: 24px; align-items: center; }
+    .label { font-size: 12px; color: #888; text-align: center; margin-top: 8px; }
+    button { padding: 10px 24px; background: #f71010; color: #fff; border: none; cursor: pointer; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="preview">
+    <div>
+      <canvas id="c32" width="32" height="32" style="width:32px;height:32px;"></canvas>
+      <div class="label">32×32</div>
+    </div>
+    <div>
+      <canvas id="c64" width="64" height="64" style="width:64px;height:64px;"></canvas>
+      <div class="label">64×64 preview</div>
+    </div>
+    <div>
+      <canvas id="c128" width="128" height="128" style="width:128px;height:128px;"></canvas>
+      <div class="label">128×128 preview</div>
+    </div>
+  </div>
+  <button id="dl">Download favicon.png</button>
+
+  <script>
+    function draw(canvas) {
+      const size = canvas.width;
+      const ctx = canvas.getContext('2d');
+
+      // Background
+      ctx.fillStyle = '#f5f5f5';
+      ctx.fillRect(0, 0, size, size);
+
+      const fontSize = Math.round(size * 0.84);
+      const x = size / 2;
+      const y = Math.round(size * 0.875);
+
+      ctx.font = `${fontSize}px 'DM Serif Display', Georgia, serif`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+
+      // S — cyan, drawn first (underneath)
+      ctx.globalCompositeOperation = 'multiply';
+      ctx.fillStyle = '#56CCF2';
+      ctx.fillText('S', x, y);
+
+      // A — ruby, drawn on top
+      ctx.globalCompositeOperation = 'multiply';
+      ctx.fillStyle = '#f71010';
+      ctx.fillText('A', x, y);
+
+      ctx.globalCompositeOperation = 'source-over';
+    }
+
+    function waitForFont(callback) {
+      if (document.fonts) {
+        document.fonts.ready.then(callback);
+      } else {
+        setTimeout(callback, 500);
+      }
+    }
+
+    waitForFont(() => {
+      ['c32', 'c64', 'c128'].forEach(id => draw(document.getElementById(id)));
+
+      document.getElementById('dl').addEventListener('click', () => {
+        const c = document.getElementById('c32');
+        const a = document.createElement('a');
+        a.href = c.toDataURL('image/png');
+        a.download = 'favicon.png';
+        a.click();
+      });
+    });
+  </script>
+</body>
+</html>

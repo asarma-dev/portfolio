@@ -1,0 +1,161 @@
+/* Skip nav */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--page-margin);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: var(--text-label);
+  font-weight: 400;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: var(--radius-md);
+}
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 300;
+  color: var(--color-text);
+  background: var(--color-bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+p,
+h1,
+h2,
+h3 {
+  overflow-wrap: break-word;
+}
+
+/* Rubylith entrance overlay — shared across all pages */
+.ruby-entrance {
+  position: fixed;
+  inset: 0;
+  background: var(--color-ruby);
+  mix-blend-mode: var(--ruby-blend);
+  opacity: 1;
+  pointer-events: none;
+  z-index: 200;
+}
+
+/* Eyebrow — shared across all pages */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--text-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--color-ruby);
+  padding: var(--space-1) var(--space-3);
+  transition: background var(--duration-base) var(--ease-out);
+}
+
+.eyebrow:hover {
+  background: var(--color-cyan);
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-text);
+  color: var(--color-bg);
+  border-radius: var(--radius-md);
+  font-size: var(--text-label);
+  font-weight: 400;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: var(--space-3) var(--space-6);
+  background: transparent;
+  color: var(--color-text);
+  border: var(--border-default) solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--text-label);
+  font-weight: 400;
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out);
+}
+.btn-secondary:hover {
+  background: var(--color-surface);
+}
+
+/* Scroll-driven fade-in */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity var(--duration-slow) var(--ease-out),
+      transform var(--duration-slow) var(--ease-out);
+  }
+  .fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ruby cursor — desktop / pointer devices only */
+.cursor-ruby {
+  position: fixed;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: var(--color-ruby);
+  mix-blend-mode: var(--ruby-blend);
+  pointer-events: none;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    width var(--duration-fast) var(--ease-spring),
+    height var(--duration-fast) var(--ease-spring),
+    background var(--duration-base) var(--ease-out);
+}
+
+.cursor-ruby.is-hovering {
+  width: 16px;
+  height: 16px;
+  background: var(--color-cyan);
+}
+
+/* Responsive breakpoints */
+/* Mobile first — base styles apply to mobile */
+/* Tablet */
+@media (min-width: 768px) {
+}
+/* Desktop */
+@media (min-width: 1024px) {
+}
+/* Wide */
+@media (min-width: 1280px) {
+}

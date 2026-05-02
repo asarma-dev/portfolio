@@ -1,0 +1,126 @@
+/* about.css — about page styles */
+
+/* ── Hero ── */
+.about-hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + var(--space-16)) var(--page-margin) var(--space-24);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .about-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Text column ── */
+.about-eyebrow {
+  margin-bottom: var(--space-6);
+}
+
+.about-heading {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  font-size: var(--text-body-lg);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.about-contact-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+
+.about-contact {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: 400;
+  color: var(--color-text);
+  text-decoration: none;
+  display: inline-block;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-spring);
+}
+
+.about-contact:hover {
+  color: var(--color-ruby);
+  transform: translateX(6px);
+}
+
+/* ── Photo column ── */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.about-photo-wrap {
+  position: relative;
+  background: #000;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+
+/* All three layers fill the container */
+.about-photo-bw,
+.about-photo-ruby,
+.about-photo-cyan {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* B&W base — sits underneath, always visible */
+.about-photo-bw {
+  position: relative;
+}
+
+/* Ruby channel — offset right/up, black bg drops out via screen */
+.about-photo-ruby {
+  mix-blend-mode: screen;
+  transform: translate(10px, 0);
+  transition:
+    transform var(--duration-slow) var(--ease-out),
+    opacity var(--duration-slow) var(--ease-out);
+}
+
+/* Cyan channel — offset left/down */
+.about-photo-cyan {
+  mix-blend-mode: screen;
+  transform: translate(-10px, 0);
+  transition:
+    transform var(--duration-slow) var(--ease-out),
+    opacity var(--duration-slow) var(--ease-out);
+}
+
+/* Hover (desktop) or tapped (mobile): converge and fade — reveals clean B&W */
+.about-photo-wrap:hover .about-photo-ruby,
+.about-photo-wrap:hover .about-photo-cyan,
+.about-photo-wrap.is-tapped .about-photo-ruby,
+.about-photo-wrap.is-tapped .about-photo-cyan {
+  transform: translate(0, 0);
+  opacity: 0;
+}

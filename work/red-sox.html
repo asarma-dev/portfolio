@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Red Sox Fenway Cards — UX Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon/favicon.svg" />
+  <link rel="icon" type="image/png" href="../assets/favicon/favicon.png" />
+    <link rel="stylesheet" href="../css/tokens.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/case-study.css" />
+    <link rel="preload" href="../assets/images/work/red-sox/RedSox-01.json" as="fetch" crossorigin />
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="ruby-entrance" aria-hidden="true"></div>
+
+    <!-- Nav -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="../index.html" class="nav-logo" aria-label="Home">
+          <span class="logo-a" aria-hidden="true">A</span>
+          <span class="logo-s" aria-hidden="true">S</span>
+        </a>
+        <ul class="nav-links">
+          <li><button class="nav-work-toggle" aria-expanded="false">Work</button></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../resume.html">Résumé</a></li>
+        </ul>
+        <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Work panel -->
+    <div class="work-panel" aria-hidden="true">
+      <button class="work-panel-close" aria-label="Close work menu"></button>
+      <ul class="work-panel-list">
+        <li><a href="verizon.html">Verizon</a></li>
+        <li><a href="liberty-mutual.html">Liberty Mutual</a></li>
+        <li><a href="xfinity.html">Xfinity</a></li>
+        <li><a href="red-sox.html">Red Sox</a></li>
+        <li><a href="ram.html">RAM Trucks</a></li>
+        <li><a href="virgin-mobile.html">Virgin Mobile</a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div class="nav-mobile-menu" aria-hidden="true">
+      <div class="nav-mobile-inner">
+        <ul class="nav-mobile-primary">
+          <li>
+            <button class="nav-mobile-work-trigger" aria-expanded="false">
+              Work
+              <span class="nav-mobile-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="nav-mobile-accordion">
+              <ul class="nav-mobile-work-list">
+                <li><a href="verizon.html">Verizon</a></li>
+                <li><a href="liberty-mutual.html">Liberty Mutual</a></li>
+                <li><a href="xfinity.html">Xfinity</a></li>
+                <li><a href="red-sox.html">Red Sox</a></li>
+                <li><a href="ram.html">RAM Trucks</a></li>
+                <li><a href="virgin-mobile.html">Virgin Mobile</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../resume.html">Résumé</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Case study -->
+    <main class="cs-layout" id="main-content">
+
+      <!-- Left: text -->
+      <div class="cs-text">
+        <p class="eyebrow cs-eyebrow">2014 — UX Designer</p>
+
+        <h1 class="cs-heading">Red Sox<br /><em>Fenway Cards</em></h1>
+
+        <div class="cs-body">
+          <p>
+            MLB wanted to find out what iBeacon technology could do inside a
+            ballpark. Each franchise worked with a local agency to generate
+            ideas. The Red Sox gave us a tour of Fenway before we ran an
+            ideation session with their chief of marketing and senior
+            leadership. We weren't brainstorming in a conference room. We
+            were working from a map of the actual fan experience.
+          </p>
+          <p>
+            Our team filtered the session output down to six concepts strong
+            enough to visualize. Fenway Cards was built around a simple
+            mechanic: any fan with the MLB app installed would receive a pack
+            of cards by walking into the iBeacon perimeter at Fenway. Open the
+            pack, see what you got. Six cards, front and back, current and
+            historical Red Sox players.
+          </p>
+          <p>
+            The collection system gave fans a reason to come back. Sets
+            organized around rosters, seasons, and Hall of Famers. Complete a
+            collection and redeem it for merchandise at the customer service
+            booth. A golden ticket was seeded into the pack distribution. A
+            small number of fans in the stadium on a given day could win
+            Monster seats or a player meet. Presence was the only entry fee
+            for any of it.
+          </p>
+          <p>
+            The Red Sox arranged a last-minute partnership with Topps, bringing
+            authentic photography and the Topps logo into the designs. The concept
+            was fully resolved — card mechanics, collection logic, redemption system,
+            visual design — before the project was cancelled ahead of development.
+          </p>
+        </div>
+
+        <dl class="cs-outcomes">
+          <div class="cs-outcome">
+            <dt>Client</dt>
+            <dd>Boston Red Sox / MLB</dd>
+          </div>
+          <div class="cs-outcome">
+            <dt>Role</dt>
+            <dd>Lead UX Designer</dd>
+          </div>
+          <div class="cs-outcome">
+            <dt>Platform</dt>
+            <dd>iPhone — MLB App</dd>
+          </div>
+          <div class="cs-outcome">
+            <dt>Technology</dt>
+            <dd>iBeacon</dd>
+          </div>
+        </dl>
+
+      </div>
+
+      <!-- Right: stacked images -->
+      <div class="cs-images">
+        <div class="cs-img-tile" role="button" tabindex="0" data-lottie-bg="#c62033" aria-label="Red Sox Fenway Cards — animation 1">
+          <lottie-player
+            src="../assets/images/work/red-sox/RedSox-01.json"
+            background="transparent"
+            speed="1"
+            style="width:100%;display:block"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div class="cs-img-tile" role="button" tabindex="0" data-lottie-bg="#c62033" aria-label="Red Sox Fenway Cards — animation 2">
+          <lottie-player
+            src="../assets/images/work/red-sox/RedSox-02.json"
+            background="transparent"
+            speed="1"
+            style="width:100%;display:block"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div class="cs-img-tile" role="button" tabindex="0">
+          <img
+            src="../assets/images/work/red-sox/01_RS_Concept.jpg"
+            alt="Red Sox Fenway Cards — concept"
+          />
+        </div>
+        <div class="cs-img-tile" role="button" tabindex="0">
+          <img
+            src="../assets/images/work/red-sox/03_RS_Wires.jpg"
+            alt="Red Sox Fenway Cards — wireframes"
+          />
+        </div>
+        <div class="cs-img-tile" role="button" tabindex="0">
+          <img
+            src="../assets/images/work/red-sox/04_RS_Wires.jpg"
+            alt="Red Sox Fenway Cards — wireframes"
+          />
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Next project — fixed bottom on desktop, inline after images on mobile -->
+    <a href="ram.html" class="cs-next-project">
+      <span class="cs-next-label">Next Project</span>
+      <span class="cs-next-title">RAM Trucks →</span>
+    </a>
+
+    <!-- Lightbox -->
+    <div class="lightbox-bg" aria-hidden="true"></div>
+    <button class="lightbox-close" aria-label="Close image" aria-hidden="true"></button>
+    <div class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+      <img class="lightbox-img" src="" alt="" />
+      <lottie-player class="lightbox-lottie" background="#c62033" speed="1" loop autoplay></lottie-player>
+    </div>
+
+    <script src="../js/cursor.js"></script>
+    <script src="../js/rubylith.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/scroll.js"></script>
+    <script src="../js/lightbox.js"></script>
+  </body>
+</html>

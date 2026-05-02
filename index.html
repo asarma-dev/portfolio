@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Senior Product Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
+    <link rel="icon" type="image/png" href="assets/favicon/favicon.png" />
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="preload" href="assets/images/work/liberty-mutual/LM-Home.json" as="fetch" crossorigin />
+    <link rel="preload" href="assets/images/work/xfinity/xfinity_Portfolio_01.json" as="fetch" crossorigin />
+    <link rel="preload" href="assets/images/work/ram/Ram-01.json" as="fetch" crossorigin />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="ruby-entrance" aria-hidden="true"></div>
+
+    <!-- Nav -->
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="Home">
+          <span class="logo-a" aria-hidden="true">A</span>
+          <span class="logo-s" aria-hidden="true">S</span>
+        </a>
+        <ul class="nav-links">
+          <li>
+            <button class="nav-work-toggle" aria-expanded="false">Work</button>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+        </ul>
+        <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Work panel -->
+    <div class="work-panel" aria-hidden="true">
+      <button class="work-panel-close" aria-label="Close work menu"></button>
+      <ul class="work-panel-list">
+        <li><a href="work/verizon.html">Verizon</a></li>
+        <li><a href="work/liberty-mutual.html">Liberty Mutual</a></li>
+        <li><a href="work/xfinity.html">Xfinity</a></li>
+        <li><a href="work/red-sox.html">Red Sox</a></li>
+        <li><a href="work/ram.html">RAM Trucks</a></li>
+        <li><a href="work/virgin-mobile.html">Virgin Mobile</a></li>
+      </ul>
+    </div>
+
+    <!-- Mobile menu overlay -->
+    <div class="nav-mobile-menu" aria-hidden="true">
+      <div class="nav-mobile-inner">
+        <ul class="nav-mobile-primary">
+          <li>
+            <button class="nav-mobile-work-trigger" aria-expanded="false">
+              Work
+              <span class="nav-mobile-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="nav-mobile-accordion">
+              <ul class="nav-mobile-work-list">
+                <li><a href="work/verizon.html">Verizon</a></li>
+                <li><a href="work/liberty-mutual.html">Liberty Mutual</a></li>
+                <li><a href="work/xfinity.html">Xfinity</a></li>
+                <li><a href="work/red-sox.html">Red Sox</a></li>
+                <li><a href="work/ram.html">RAM Trucks</a></li>
+                <li><a href="work/virgin-mobile.html">Virgin Mobile</a></li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Résumé</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Hero + Work grid -->
+    <main class="home-layout" id="main-content">
+      <div class="home-text">
+        <p class="eyebrow hero-eyebrow">Akshay Sarma</p>
+        <h1 class="hero-heading">
+          I think in systems.<br />
+          I design for people.
+        </h1>
+        <p class="hero-body">
+          15+ years turning complex systems into products people understand.
+          From ambiguous brief to shipped build, with engineers and stakeholders
+          in the room at every step.
+        </p>
+      </div>
+
+      <div class="work-grid">
+        <div class="work-scroll-track">
+          <!-- 1. Verizon -->
+          <a
+            class="project-tile"
+            href="work/verizon.html"
+            data-project="verizon"
+          >
+            <div class="tile-media">
+              <div class="tile-img-layer">
+                <lottie-player
+                  src="assets/images/work/verizon/Verizon_Portfolio_01.json"
+                  background="transparent"
+                  speed="1"
+                  style="width:100%;height:100%"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="tile-ruby-overlay" aria-hidden="true"></div>
+              <div class="tile-label">
+                <span class="tile-label-title">Verizon</span>
+                <span class="tile-label-sub">Home Network App · 2023</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 2. Liberty Mutual -->
+          <a
+            class="project-tile"
+            href="work/liberty-mutual.html"
+            data-project="liberty-mutual"
+          >
+            <div class="tile-media">
+              <div class="tile-img-layer">
+                <lottie-player
+                  src="assets/images/work/liberty-mutual/LM-Home.json"
+                  background="transparent"
+                  speed="1"
+                  style="width:100%;height:100%"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="tile-ruby-overlay" aria-hidden="true"></div>
+              <div class="tile-label">
+                <span class="tile-label-title">Liberty Mutual</span>
+                <span class="tile-label-sub"
+                  >RightTrack &amp; ByMile · 2017–2019</span
+                >
+              </div>
+            </div>
+          </a>
+
+          <!-- 3. Xfinity -->
+          <a
+            class="project-tile"
+            href="work/xfinity.html"
+            data-project="xfinity"
+          >
+            <div class="tile-media">
+              <div class="tile-img-layer">
+                <lottie-player
+                  src="assets/images/work/xfinity/xfinity_Portfolio_01.json"
+                  background="transparent"
+                  speed="1"
+                  style="width:100%;height:100%"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="tile-ruby-overlay" aria-hidden="true"></div>
+              <div class="tile-label">
+                <span class="tile-label-title">Xfinity</span>
+                <span class="tile-label-sub">Store Locator · 2017</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 4. Red Sox -->
+          <a
+            class="project-tile"
+            href="work/red-sox.html"
+            data-project="red-sox"
+          >
+            <div class="tile-media">
+              <div class="tile-img-layer">
+                <lottie-player
+                  src="assets/images/work/red-sox/RedSox-01.json"
+                  background="transparent"
+                  speed="1"
+                  style="width:100%;height:100%"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="tile-ruby-overlay" aria-hidden="true"></div>
+              <div class="tile-label">
+                <span class="tile-label-title">Red Sox</span>
+                <span class="tile-label-sub"
+                  >Digital Baseball Cards · 2014</span
+                >
+              </div>
+            </div>
+          </a>
+
+          <!-- 5. RAM Trucks -->
+          <a class="project-tile" href="work/ram.html" data-project="ram">
+            <div class="tile-media">
+              <div class="tile-img-layer">
+                <lottie-player
+                  src="assets/images/work/ram/Ram-01.json"
+                  background="transparent"
+                  speed="1"
+                  style="width:100%;height:100%"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="tile-ruby-overlay" aria-hidden="true"></div>
+              <div class="tile-label">
+                <span class="tile-label-title">RAM Trucks</span>
+                <span class="tile-label-sub">Upfit Guide · 2014</span>
+              </div>
+            </div>
+          </a>
+
+          <!-- 6. Virgin Mobile -->
+          <a
+            class="project-tile"
+            href="work/virgin-mobile.html"
+            data-project="virgin-mobile"
+          >
+            <div class="tile-media">
+              <div class="tile-img-layer">
+                <lottie-player
+                  src="assets/images/work/virgin-mobile/Virgin-01.json"
+                  background="transparent"
+                  speed="1"
+                  style="width:100%;height:100%"
+                  loop
+                  autoplay
+                ></lottie-player>
+              </div>
+              <div class="tile-ruby-overlay" aria-hidden="true"></div>
+              <div class="tile-label">
+                <span class="tile-label-title">Virgin Mobile</span>
+                <span class="tile-label-sub">Website Redesign · 2012</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- /.work-scroll-track -->
+      </div>
+    </main>
+
+    <!-- Footer -->
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/rubylith.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/scroll.js"></script>
+  </body>
+</html>

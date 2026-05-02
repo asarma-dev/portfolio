@@ -1,0 +1,185 @@
+/* resume.css — resume page styles */
+
+/* Prevent horizontal scroll from glasses bleed */
+/* overflow-x: clip (not hidden) — clip does not create a scroll container, preserving position:sticky on children */
+body {
+  overflow-x: clip;
+}
+
+/* ── Layout ── */
+.resume-layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + var(--space-8)) var(--page-margin) var(--space-32);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .resume-layout {
+    padding-top: calc(var(--nav-height) + var(--space-16));
+    gap: var(--space-12);
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Header ── */
+.resume-eyebrow {
+  margin-bottom: var(--space-6);
+}
+
+.resume-name {
+  font-family: var(--font-display);
+  font-size: var(--text-display);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+}
+
+.resume-meta {
+  font-size: var(--text-body);
+  font-weight: 300;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+.resume-meta a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.resume-meta a:hover {
+  color: var(--color-ruby);
+}
+
+/* ── Company blocks ── */
+.resume-company-block {
+  margin-bottom: var(--space-12);
+}
+
+.resume-company-block:last-child,
+.resume-role-block:last-child {
+  margin-bottom: 0;
+}
+
+.resume-company-name {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-3);
+  border-bottom: var(--border-default) solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  position: sticky;
+  top: var(--nav-height);
+  background: var(--color-bg);
+  z-index: 10;
+}
+
+/* ── Company dates ── */
+.resume-company-dates {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0;
+}
+
+/* ── Company narrative ── */
+.resume-company-narrative {
+  font-size: var(--text-body-lg);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+}
+
+/* ── Role blocks ── */
+.resume-role-block {
+  margin-bottom: var(--space-8);
+}
+
+.resume-role-block .eyebrow {
+  margin-bottom: var(--space-4);
+}
+
+/* ── Project list ── */
+.resume-project-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.resume-project-list li {
+  font-size: var(--text-body);
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.resume-client {
+  font-weight: 600;
+}
+
+.resume-meta-inline {
+  font-size: var(--text-label);
+  color: var(--color-text-muted);
+}
+
+/* ── Winsper description ── */
+.resume-role-description {
+  font-size: var(--text-body);
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ── Right column ── */
+.resume-right {
+  display: block;
+  order: -1;
+  mix-blend-mode: multiply;
+  margin-bottom: var(--space-2);
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .resume-right {
+    order: 0;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    position: sticky;
+    top: calc(var(--nav-height) + var(--space-16));
+    align-self: start;
+  }
+}
+
+/* ── Glasses image ── */
+.glasses-image {
+  width: 100%;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .glasses-image {
+    width: 140%;
+    max-width: none;
+  }
+}
