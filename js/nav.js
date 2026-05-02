@@ -43,7 +43,10 @@ function closeWorkPanel() {
   if (!window.location.pathname.includes('/work/')) {
     workToggle.classList.remove('is-active');
   }
-  workPanelPrevFocus?.focus();
+  // Delay focus restore until after the slide-out transition finishes
+  workPanel.addEventListener('transitionend', () => {
+    workPanelPrevFocus?.focus();
+  }, { once: true });
 }
 
 workToggle?.addEventListener('click', () => {
