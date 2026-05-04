@@ -67,6 +67,22 @@
   transform: translateX(6px);
 }
 
+/* ── Small phone (≤ 430px — iPhone 13 mini, SE) ── */
+@media (max-width: 430px) {
+  .about-hero {
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+
+  .about-heading {
+    font-size: var(--text-h1);
+  }
+
+  .about-contact {
+    font-size: var(--text-h2);
+  }
+}
+
 /* ── Photo column ── */
 .about-right {
   display: flex;
