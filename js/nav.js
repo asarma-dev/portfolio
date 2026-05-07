@@ -61,10 +61,8 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeWorkPanel();
 });
 
-// Close when a panel link is clicked
-workPanel?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', closeWorkPanel);
-});
+// No close-on-click for panel links — browser navigates away; closing first
+// causes a visible glitch on live (network latency lets the animation run).
 
 // ── Mobile hamburger toggle ──
 const burger            = document.querySelector('.nav-burger');
