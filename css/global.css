@@ -16,6 +16,26 @@
   top: var(--space-4);
 }
 
+/* Pause animations button — visually hidden, keyboard accessible (WCAG 2.2.2) */
+.pause-animations {
+  position: absolute;
+  top: -100%;
+  left: var(--page-margin);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  z-index: 10000;
+  border-radius: var(--radius-md);
+}
+.pause-animations:focus {
+  top: calc(var(--space-4) + 32px + var(--space-2));
+}
+
 /* Focus indicators — keyboard navigation */
 :focus-visible {
   outline: 2px solid var(--color-ruby);
@@ -72,7 +92,7 @@ h3 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #fff;
-  background: var(--color-ruby);
+  background: #d40e0e; /* Darker than --color-ruby for WCAG AA contrast (5.43:1 vs 4.17:1) */
   padding: var(--space-1) var(--space-3);
   transition: background var(--duration-base) var(--ease-out);
 }

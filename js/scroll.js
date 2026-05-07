@@ -48,7 +48,7 @@ if (window.matchMedia('(min-width: 768px)').matches) {
     track.addEventListener("mouseleave", () => { paused = false; });
 
     function tick() {
-      if (!paused && !reducedMotion) pos += speed;
+      if (!paused && !reducedMotion && !window.__animPaused) pos += speed;
       if (pos >= resetAt) pos -= resetAt;
       if (pos < 0) pos += resetAt;
       // Round to nearest pixel to prevent sub-pixel snapping on loop reset
@@ -142,6 +142,21 @@ document.querySelectorAll(".cs-section, .project-tile").forEach((el) => {
   el.classList.add("fade-in");
   observer.observe(el);
 });
+
+// Pause animations button — WCAG 2.2.2 keyboard-accessible control
+(function () {
+  const btn = document.querySelector('.pause-animations');
+  if (!btn) return;
+  window.__animPaused = false;
+  btn.addEventListener('click', () => {
+    window.__animPaused = !window.__animPaused;
+    btn.textContent = window.__animPaused ? 'Play animations' : 'Pause animations';
+    btn.setAttribute('aria-pressed', String(window.__animPaused));
+    document.querySelectorAll('lottie-player:not(.lightbox-lottie)').forEach(p => {
+      window.__animPaused ? p.pause() : p.play();
+    });
+  });
+})();
 
 // Pause lottie-player animations for users who prefer reduced motion
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
