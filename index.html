@@ -286,7 +286,7 @@
             img.src = _thumbs[project];
             img.alt = '';
             img.setAttribute('aria-hidden', 'true');
-            img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block';
+            img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block';
             layer.replaceChild(img, player);
           }
         });
