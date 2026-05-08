@@ -9,7 +9,7 @@ if (window.matchMedia('(min-width: 768px)').matches) {
     // Clone tiles 3 times so the loop reset happens once every 3 rotations.
     // More copies = fewer resets = less visible flash at the loop boundary.
     const originals = Array.from(track.children);
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
       originals.forEach((tile) => {
         const clone = tile.cloneNode(true);
         clone.setAttribute("aria-hidden", "true");
@@ -27,13 +27,33 @@ if (window.matchMedia('(min-width: 768px)').matches) {
     // resetAt = height of the 3 clone sets (3/4 of total track height).
     // Infinity until Lottie loads and tiles reach their true rendered height.
     // ResizeObserver keeps it current so the reset point stays accurate.
+    // Lottie visibility tracking — position-based rather than IntersectionObserver.
+    // IntersectionObserver fires against layout position, not visual position, so it
+    // doesn't account for the translateY on the track — all tiles appear "in view".
+    // Here we use pos directly: pure arithmetic, no DOM reads in the hot path.
+    let containerHeight = container.offsetHeight;
+    const tilesWithLottie = [];
+    track.querySelectorAll('.project-tile').forEach(tile => {
+      const players = Array.from(tile.querySelectorAll('lottie-player'));
+      if (players.length) tilesWithLottie.push({ tile, players, top: 0, height: 0, visible: true });
+    });
+
+    function measureTiles() {
+      containerHeight = container.offsetHeight;
+      tilesWithLottie.forEach(t => {
+        t.top = t.tile.offsetTop;
+        t.height = t.tile.offsetHeight;
+      });
+    }
+
     let resetAt = Infinity;
     const ro = new ResizeObserver(() => {
-      const measured = track.scrollHeight * 3 / 4;
+      const measured = track.scrollHeight * 2 / 3;
       if (Math.abs(measured - resetAt) > 1) {
-        if (pos >= measured) pos = pos % (track.scrollHeight / 4);
+        if (pos >= measured) pos = pos % (track.scrollHeight / 3);
         resetAt = measured;
       }
+      measureTiles();
     });
     ro.observe(track);
 
@@ -53,6 +73,24 @@ if (window.matchMedia('(min-width: 768px)').matches) {
       if (pos < 0) pos += resetAt;
       // Round to nearest pixel to prevent sub-pixel snapping on loop reset
       track.style.transform = `translateY(-${Math.round(pos)}px)`;
+
+      // Play/pause lottie-players based on scroll position.
+      // Only fires play/pause on state changes — not every frame.
+      if (tilesWithLottie.length) {
+        const viewBottom = pos + containerHeight;
+        tilesWithLottie.forEach(t => {
+          const nowVisible = t.height > 0 && t.top + t.height > pos && t.top < viewBottom;
+          if (nowVisible !== t.visible) {
+            t.visible = nowVisible;
+            if (nowVisible) {
+              if (!reducedMotion && !window.__animPaused) t.players.forEach(p => p.play());
+            } else {
+              t.players.forEach(p => p.pause());
+            }
+          }
+        });
+      }
+
       requestAnimationFrame(tick);
     }
 

@@ -7,10 +7,19 @@ if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
 
   const interactive = 'a, button, input, select, textarea, label, [role="button"]';
 
+  let mouseX = 0, mouseY = 0, rafPending = false;
+
   document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-    cursor.style.opacity = '1';
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(() => {
+        cursor.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+        cursor.style.opacity = '1';
+        rafPending = false;
+      });
+    }
   });
 
   document.addEventListener('mouseover', (e) => {

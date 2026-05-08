@@ -15,9 +15,18 @@
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="css/home.css" />
-    <link rel="preload" href="assets/images/work/liberty-mutual/LM-Home.json" as="fetch" crossorigin />
-    <link rel="preload" href="assets/images/work/xfinity/xfinity_Portfolio_01.json" as="fetch" crossorigin />
-    <link rel="preload" href="assets/images/work/ram/Ram-01.json" as="fetch" crossorigin />
+    <script>
+      window.__isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+      if (!window.__isSafari) {
+        ['assets/images/work/liberty-mutual/LM-Home.json',
+         'assets/images/work/xfinity/xfinity_Portfolio_01.json',
+         'assets/images/work/ram/Ram-01.json'].forEach(function(href) {
+          var link = document.createElement('link');
+          link.rel = 'preload'; link.href = href; link.as = 'fetch'; link.crossOrigin = '';
+          document.head.appendChild(link);
+        });
+      }
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -257,7 +266,34 @@
 
     <!-- Footer -->
 
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Safari: swap lottie-player elements for static WebP thumbnails before Lottie script loads -->
+    <script>
+      if (window.__isSafari) {
+        var _thumbs = {
+          'verizon':        'assets/images/work/verizon/Verizon_Portfolio-thumb.webp',
+          'liberty-mutual': 'assets/images/work/liberty-mutual/liberty-thumb.webp',
+          'xfinity':        'assets/images/work/xfinity/xfinity-thumb.webp',
+          'red-sox':        'assets/images/work/red-sox/redsox-thumb.webp',
+          'ram':            'assets/images/work/ram/ram-thumb.webp',
+          'virgin-mobile':  'assets/images/work/virgin-mobile/Virgin-thumb.webp'
+        };
+        document.querySelectorAll('.project-tile').forEach(function(tile) {
+          var project = tile.getAttribute('data-project');
+          var layer = tile.querySelector('.tile-img-layer');
+          var player = layer && layer.querySelector('lottie-player');
+          if (player && _thumbs[project]) {
+            var img = document.createElement('img');
+            img.src = _thumbs[project];
+            img.alt = '';
+            img.setAttribute('aria-hidden', 'true');
+            img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block';
+            layer.replaceChild(img, player);
+          }
+        });
+      }
+    </script>
+    <!-- Lottie player — not loaded on Safari (static WebP fallback used instead) -->
+    <script>if (!window.__isSafari) { document.write('<scr'+'ipt src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"><\/scr'+'ipt>'); }</script>
     <script src="js/cursor.js"></script>
     <script src="js/rubylith.js"></script>
     <script src="js/nav.js"></script>

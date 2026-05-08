@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(() => {
       overlay.style.transition = `opacity var(--duration-slowest) var(--ease-out)`;
       overlay.style.opacity = '0';
+      overlay.addEventListener('transitionend', () => {
+        overlay.style.display = 'none';
+      }, { once: true });
     });
   });
 });
